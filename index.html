@@ -32,9 +32,9 @@
                 <p id="err-imagen"></p>
             </div>
 
-			<label for="sel"><strong>Grupo: </strong></label>
+			<label for="sel"><strong>Tags: </strong></label>
 			<div class="flex-row">
-				<select id="sel" name="grupo" class="required" multiple>
+				<select id="sel" name="tags" class="required" multiple>
 					<!-- <option value="">-- Selecciona un grupo --</option> -->
 					<option value="social">Social</option>
 					<option value="records">Records</option>
@@ -49,6 +49,28 @@
 			
 			<button type="submit" name="envio" >Enviar</button>
 		</form>
+
+        <hr style="margin: 40px auto;">
+
+        <form id="buscador-grupos" class="flex-row">
+            <p>FILTROS:</p>
+            <label for="filtro-nombre">Nombre</label>
+            <input type="text" id="filtro-nombre" minlength="3">
+
+            <label for="filtro-tags">Tags</label>
+            <input type="text" list="lista-tags" id="filtro-tags" minlength="3">
+
+            <datalist id="lista-tags">
+                <option value="social">Social</option>
+                <option value="records">Records</option>
+                <option value="esport">Esport</option>
+                <option value="salut">Salut</option>
+                <option value="cinema">Cinema</option>
+                <option value="entreteniment">Entreteniment</option>
+            </datalist>
+
+            <input type="submit" id="filtros-buscar" value="Buscar">
+        </form>
 
         <hr>
 

@@ -1,3 +1,7 @@
+*{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 label:not(.inline), input:not(.inline), textarea{
     display: block;
 }
@@ -34,4 +38,11 @@ label:not(.inline), input:not(.inline), textarea{
 
 textarea{ resize: none; }
 
-select{ height: 200px; width: 150px;}
+select{ height: fit-content; width: 150px;}
+
+#buscador-grupos{
+    margin: 10px;
+}
+#buscador-grupos input, #buscador-grupos label, #buscador-grupos button{
+    margin: 0 5px;
+}

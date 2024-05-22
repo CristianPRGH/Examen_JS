@@ -1,8 +1,13 @@
 document.addEventListener("DOMContentLoaded", MostrarGrupos);
 
+let filtrosBuscar = document.getElementById("buscador-grupos");
+filtrosBuscar.addEventListener("submit", (e)=>{
+    e.preventDefault();
+    MostrarGrupos();
+});
+
 function MostrarGrupos()
 {
-
     // Recoge todas las entradas del local storage
     let entries = Object.entries(localStorage);
     let grupos = [];
@@ -16,22 +21,32 @@ function MostrarGrupos()
             grupos.push(JSON.parse(entries[key][1]));
         }
     }
-
+    let grid = document.getElementById("grupos-grid");
+    grid.innerHTML = "";
     // Recorre los grupos añadiendolos al grid
     grupos.forEach(grupo => {
-        CreaGrupoCard(grupo);
+        CreaGrupoCard(grupo, grid);
     });
 }
 
-function CreaGrupoCard(grupo)
+function CreaGrupoCard(grupo, grid)
 {
-    let grid = document.getElementById("grupos-grid");
     let nombre  = grupo.nombre;
     let desc    = grupo.descripcion;
     let imagen  = grupo.imagen;
     let tags    = grupo.tags;
 
-    console.log(grupo.tags);
+
+
+    
+    // FILTROS
+    let filtroNombre = document.getElementById("filtro-nombre");
+    if (!nombre.toLowerCase().includes(filtroNombre.value.toLowerCase())) return;
+
+    let filtroTags = document.getElementById("filtro-tags");
+    if (!tags.some( (tag) => tag.toLowerCase().includes(filtroTags.value.toLowerCase()))) return;
+
+
 
     let cell = document.createElement("article");
     cell.setAttribute("class", "flexRow grupo-card");
