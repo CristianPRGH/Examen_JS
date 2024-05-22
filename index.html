@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta HTTP-EQUIV="Expires" CONTENT="no-cache">
+		<meta charset="UTF-8">
+		<meta name="description" content="Formulario">
+		<title>Formulario de registro - Mi web</title>
+
+        <link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<!-- onsubmit="return Validaciones()" -->
+		<form method="GET" name="miForm" onsubmit="return Validaciones()">
+			<h2>NUEVO GRUPO</h2>			
+			<label for="nombre"><strong>Nombre:</strong>
+				<div class="flex-row">
+					<input id="nombre" type="text" name="nombre" maxlength="50" size="50" class="required">
+					<p id="err-nombre"></p>
+				</div>
+			</label>
+			
+			
+			<label><strong>Descripción:</strong></label>
+            <div class="flex-row">
+                <textarea id="descripcion" name="descripcion" rows="10" cols="50" class="required" placeholder="Tu descripción aquí..."></textarea>
+                <p id="err-descripcion"></p>
+            </div>
+
+            <label><strong>Imagen:</strong></label>
+            <div class="flex-row">
+                <input type="url" name="imagen" id="imagen" size="50" class="required">
+                <p id="err-imagen"></p>
+            </div>
+
+			<label for="sel"><strong>Grupo: </strong></label>
+			<div class="flex-row">
+				<select id="sel" name="grupo" class="required" multiple>
+					<!-- <option value="">-- Selecciona un grupo --</option> -->
+					<option value="social">Social</option>
+					<option value="records">Records</option>
+					<option value="esport">Esport</option>
+					<option value="salut">Salut</option>
+					<option value="cinema">Cinema</option>
+					<option value="entreteniment">Entreteniment</option>
+				</select>
+				<p id="err-sel"></p>
+			</div>
+			
+			
+			<button type="submit" name="envio" >Enviar</button>
+		</form>
+
+        <hr>
+
+        <section class="grupos">
+            <article id="grupos-grid" class="grid">
+
+            </article>
+        </section>
+
+	</body>
+
+	
+	<script src="Validaciones.js"></script>
+	<script src="MuestraGrupos.js"></script>
+</html>
