@@ -49,22 +49,26 @@ function CreaGrupoCard(grupo, grid)
 
 
     let cell = document.createElement("article");
-    cell.setAttribute("class", "flexRow grupo-card");
+    cell.setAttribute("class", "flex-row grupo-card");
+
+
 
     let groupimg = document.createElement("img");
     groupimg.setAttribute("src", imagen);
     groupimg.setAttribute("id", "grupo-imagen");
    
+
+
     let container = document.createElement("article");
-    container.setAttribute("class", "flexColumn");
+    container.setAttribute("class", "flex-column card-content");
 
     let groupname = document.createElement("h3");
     groupname.innerHTML = nombre;
     let groupdesc = document.createElement("p");
+    groupdesc.setAttribute("class", "card-description");
     groupdesc.innerHTML = desc;
-
-
     let grouptags = document.createElement("p");
+    grouptags.setAttribute("class", "card-tags");
     grouptags.innerHTML = tags.join(' | ');
 
     container.appendChild(groupname);
